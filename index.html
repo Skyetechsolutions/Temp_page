@@ -15,24 +15,27 @@
         background-color: #2e6ebe;
         color: white;
         font-family: "Segoe UI", sans-serif;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 20px;
       }
 
       .container {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
         justify-content: center;
-        gap: 50px;
-        padding: 40px;
+        align-items: center;
+        gap: 40px;
+        max-width: 1200px;
+        width: 100%;
       }
 
       .illustration {
         flex: 1 1 300px;
-        max-width: 500px;
+        max-width: 450px;
       }
 
       .illustration img {
@@ -48,7 +51,8 @@
       }
 
       .logo {
-        width: 550px;
+        width: 100%;
+        max-width: 400px;
         margin: 0 auto 20px;
       }
 
@@ -73,8 +77,9 @@
       .countdown-container {
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
         margin-top: 25px;
+        flex-wrap: wrap;
       }
 
       .time-box {
@@ -103,6 +108,8 @@
         margin-top: 30px;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       .notify-box input {
@@ -112,6 +119,7 @@
         border-radius: 10px 0 0 10px;
         outline: none;
         width: 250px;
+        max-width: 80%;
       }
 
       .notify-box button {
@@ -130,18 +138,41 @@
         color: #cbd5e1;
       }
 
+      /* Responsive: Mobile-First */
       @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
         .container {
           flex-direction: column;
           gap: 30px;
         }
 
-        .content h1 {
-          font-size: 1.8rem;
+        .logo {
+          max-width: 280px;
         }
 
-        .logo {
+        .content h1 {
+          font-size: 1.6rem;
+        }
+
+        .time-box span {
+          font-size: 1.4rem;
+        }
+
+        .notify-box input {
           width: 100%;
+          border-radius: 10px;
+        }
+
+        .notify-box button {
+          border-radius: 10px;
+          width: 100%;
+        }
+
+        .notify-box {
+          flex-direction: column;
         }
       }
     </style>
@@ -157,15 +188,14 @@
         <p>Stay tuned! A new experience is on its way.</p>
 
         <div class="countdown-container" id="countdown">
-          <!-- Time blocks will be injected by JS -->
+          <!-- Time boxes injected here -->
         </div>
 
         <div class="notify-box">
           <input type="text" placeholder="Notify me" />
           <button title="Send">&#9993;</button>
         </div>
-        <!-- <div class="email-display">skyetechsolutions.blr@gmail.com</div> -->
-        <div class="email-display">info@skyetechsolutions.com</div>
+        <div class="email-display">skyetechsolutions.blr@gmail.com</div>
       </div>
     </div>
 
@@ -190,7 +220,7 @@
         typeEffect();
       });
 
-      // Countdown timer
+      // Countdown logic
       const countdown = document.getElementById("countdown");
       const launchDate = new Date("June 1, 2025 00:00:00").getTime();
 
@@ -202,7 +232,9 @@
         const hours = Math.floor(
           (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const minutes = Math.floor(
+          (distance % (1000 * 60 * 60)) / (1000 * 60)
+        );
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (distance < 0) {

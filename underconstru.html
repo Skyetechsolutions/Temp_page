@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | SkyeTech</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #2e6ebe;
+        color: white;
+        font-family: "Segoe UI", sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        padding: 40px;
+      }
+
+      .illustration {
+        flex: 1 1 300px;
+        max-width: 500px;
+      }
+
+      .illustration img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .content {
+        flex: 1 1 300px;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 550px;
+        margin: 0 auto 20px;
+      }
+
+      .content h1 {
+        font-size: 2.2rem;
+        color: #f97316;
+        margin-bottom: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #f97316;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .content p {
+        font-size: 1.1rem;
+        color: #cbd5e1;
+        margin-top: 10px;
+      }
+
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .time-box {
+        background-color: #1e3a8a;
+        padding: 15px 20px;
+        border-radius: 10px;
+        text-align: center;
+        min-width: 70px;
+        box-shadow: 0 0 10px #00000055;
+      }
+
+      .time-box span {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      .time-box small {
+        font-size: 0.8rem;
+        color: #cbd5e1;
+        margin-top: 4px;
+      }
+
+      .notify-box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .notify-box input {
+        padding: 12px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px 0 0 10px;
+        outline: none;
+        width: 250px;
+      }
+
+      .notify-box button {
+        background-color: #f97316;
+        border: none;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 0 10px 10px 0;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .email-display {
+        margin-top: 12px;
+        font-size: 0.95rem;
+        color: #cbd5e1;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .content h1 {
+          font-size: 1.8rem;
+        }
+
+        .logo {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="illustration">
+        <img src="SKYE GUY2.png" alt="Tech traveler illustration" />
+      </div>
+      <div class="content">
+        <img src="SKYE-white.png" class="logo" alt="SkyeTech Logo" />
+        <h1 id="headline">We're Launching Soon!!</h1>
+        <p>Stay tuned! A new experience is on its way.</p>
+
+        <div class="countdown-container" id="countdown">
+          <!-- Time blocks will be injected by JS -->
+        </div>
+
+        <div class="notify-box">
+          <input type="text" placeholder="Notify me" />
+          <button title="Send">&#9993;</button>
+        </div>
+        <!-- <div class="email-display">skyetechsolutions.blr@gmail.com</div> -->
+        <div class="email-display">info@skyetechsolutions.com</div>
+      </div>
+    </div>
+
+    <script>
+      // Typing effect
+      document.addEventListener("DOMContentLoaded", () => {
+        const headline = document.getElementById("headline");
+        const text = headline.textContent;
+        let i = 0;
+        headline.textContent = "";
+
+        function typeEffect() {
+          if (i < text.length) {
+            headline.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeEffect, 70);
+          } else {
+            headline.style.borderRight = "none";
+          }
+        }
+
+        typeEffect();
+      });
+
+      // Countdown timer
+      const countdown = document.getElementById("countdown");
+      const launchDate = new Date("June 1, 2025 00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (distance < 0) {
+          countdown.innerHTML = "<p>We're Live!</p>";
+          return;
+        }
+
+        countdown.innerHTML = `
+          <div class="time-box"><span>${days}</span><small>Days</small></div>
+          <div class="time-box"><span>${hours}</span><small>Hours</small></div>
+          <div class="time-box"><span>${minutes}</span><small>Minutes</small></div>
+          <div class="time-box"><span>${seconds}</span><small>Seconds</small></div>
+        `;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>

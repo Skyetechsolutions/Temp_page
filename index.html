@@ -1,273 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon | SkyeTech</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    body {
-      background-color: #2e6ebe;
-      color: white;
-      font-family: "Segoe UI", sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+    <!-- Primary Meta Tags -->
+    <title>Coming Soon | SkyeTech</title>
+    <meta name="title" content="Coming Soon | SkyeTech" />
+    <meta
+      name="description"
+      content="SkyeTech Solutions is launching soon. Get ready for a new experience in tech and innovation."
+    />
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      max-width: 1200px;
-      width: 100%;
-    }
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
 
-    .illustration {
-      flex: 1 1 300px;
-      max-width: 450px;
-      order: 2;
-    }
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://skyetechsolutions.com/" />
+    <meta property="og:title" content="Coming Soon | SkyeTech" />
+    <meta
+      property="og:description"
+      content="Stay tuned! A new experience is on its way from SkyeTech Solutions."
+    />
+    <meta property="og:image" content="social-preview.jpg" />
 
-    .illustration img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://skyetechsolutions.com/" />
+    <meta property="twitter:title" content="Coming Soon | SkyeTech" />
+    <meta
+      property="twitter:description"
+      content="Stay tuned! A new experience is on its way from SkyeTech Solutions."
+    />
+    <meta property="twitter:image" content="social-preview.jpg" />
 
-    .content {
-      flex: 1 1 300px;
-      max-width: 500px;
-      text-align: center;
-      order: 1;
-    }
+    <!-- Styles -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    .logo {
-      width: 100%;
-      max-width: 280px;
-      margin: 0 auto 20px;
-    }
+      body {
+        background-color: #2e6ebe;
+        color: white;
+        font-family: "Segoe UI", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
 
-    .content h1 {
-      font-size: 2rem;
-      color: #f97316;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #f97316;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .content p {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-top: 10px;
-    }
-
-    .countdown-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-
-    .time-box {
-      background-color: #1e3a8a;
-      padding: 15px 20px;
-      border-radius: 10px;
-      text-align: center;
-      min-width: 70px;
-      box-shadow: 0 0 10px #00000055;
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #ffffff;
-    }
-
-    .time-box small {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-      margin-top: 4px;
-    }
-
-    .notify-box {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.notify-box input {
-  padding: 12px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  width: 250px;
-  max-width: 80%;
-}
-
-.notify-box button {
-  background-color: #f97316;
-  border: none;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .notify-box {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .notify-box input,
-  .notify-box button {
-    width: auto;
-    min-width: 200px;
-    max-width: 90%;
-  }
-
-  .notify-box button {
-    padding: 12px 20px;
-  }
-}
-    
-
-    .email-display {
-      margin-top: 12px;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-
-    /* Mobile-first layout */
-    @media (max-width: 768px) {
       .container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-      }
-
-      .content {
-        order: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        max-width: 1200px;
         width: 100%;
-      }
-
-      .logo {
-        max-width: 220px;
-        margin-bottom: 15px;
       }
 
       .illustration {
+        flex: 1 1 300px;
+        max-width: 450px;
         order: 2;
+      }
+
+      .illustration img {
         width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .content {
+        flex: 1 1 300px;
+        max-width: 500px;
+        text-align: center;
+        order: 1;
+      }
+
+      .logo {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto 20px;
       }
 
       .content h1 {
-        font-size: 1.6rem;
+        font-size: 2rem;
+        color: #f97316;
+        margin-bottom: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #f97316;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .content p {
+        font-size: 1.1rem;
+        color: #cbd5e1;
+        margin-top: 10px;
+      }
+
+      .countdown-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+      }
+
+      .time-box {
+        background-color: #1e3a8a;
+        padding: 15px 20px;
+        border-radius: 10px;
+        text-align: center;
+        min-width: 70px;
+        box-shadow: 0 0 10px #00000055;
       }
 
       .time-box span {
-        font-size: 1.4rem;
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #ffffff;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-     <div class="content">
-      <img src="SKYE-white.png" class="logo" alt="SkyeTech Logo" />
-      <h1 id="headline">We're Launching Soon!!</h1>
-      <p>Stay tuned! A new experience is on its way.</p>
 
-      <div class="countdown-container" id="countdown"></div>
+      .time-box small {
+        font-size: 0.8rem;
+        color: #cbd5e1;
+        margin-top: 4px;
+      }
 
-      <div class="notify-box">
-        <input type="text" placeholder="Notify me" />
-        <button title="Send">&#9993;</button>
-      </div>
-      <div class="email-display">skyetechsolutions.blr@gmail.com</div>
-    </div>
+      .notify-box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
 
-    <div class="illustration">
-      <img src="SKYE GUY2.png" alt="Tech traveler illustration" />
-    </div>
-  </div>
+      .notify-box input {
+        padding: 12px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        width: 250px;
+        max-width: 100%;
+      }
 
-  <script>
-    // Typing effect
-    document.addEventListener("DOMContentLoaded", () => {
-      const headline = document.getElementById("headline");
-      const text = headline.textContent;
-      let i = 0;
-      headline.textContent = "";
+      .notify-box button {
+        background-color: #f97316;
+        border: none;
+        color: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-      function typeEffect() {
-        if (i < text.length) {
-          headline.textContent += text.charAt(i);
-          i++;
-          setTimeout(typeEffect, 70);
-        } else {
-          headline.style.borderRight = "none";
+      .email-display {
+        margin-top: 12px;
+        font-size: 0.95rem;
+        color: #cbd5e1;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .content {
+          order: 0;
+          width: 100%;
+        }
+
+        .logo {
+          max-width: 220px;
+          margin-bottom: 15px;
+        }
+
+        .illustration {
+          order: 2;
+          width: 100%;
+        }
+
+        .content h1 {
+          font-size: 1.6rem;
+        }
+
+        .time-box span {
+          font-size: 1.4rem;
+        }
+
+        .notify-box {
+          flex-wrap: nowrap;
+          justify-content: center;
+        }
+
+        .notify-box input {
+          flex: 1;
+          max-width: 70%;
+        }
+
+        .notify-box button {
+          flex-shrink: 0;
+          padding: 8px 12px;
+          font-size: 1rem;
+          margin-left: 5px;
         }
       }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <img src="SKYE-white.png" class="logo" alt="SkyeTech Logo" />
+        <h1 id="headline">We're Launching Soon!!</h1>
+        <p>Stay tuned! A new experience is on its way.</p>
 
-      typeEffect();
-    });
+        <div class="countdown-container" id="countdown"></div>
 
-    // Countdown logic
-    const countdown = document.getElementById("countdown");
-    const launchDate = new Date("June 1, 2025 00:00:00").getTime();
+        <div class="notify-box">
+          <input type="text" placeholder="Notify me" />
+          <button title="Send">&#9993;</button>
+        </div>
+        <div class="email-display">skyetechsolutions.blr@gmail.com</div>
+      </div>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+      <div class="illustration">
+        <img src="SKYE GUY2.png" alt="Tech traveler illustration" />
+      </div>
+    </div>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    <script>
+      // Typing effect
+      document.addEventListener("DOMContentLoaded", () => {
+        const headline = document.getElementById("headline");
+        const text = headline.textContent;
+        let i = 0;
+        headline.textContent = "";
 
-      if (distance < 0) {
-        countdown.innerHTML = "<p>We're Live!</p>";
-        return;
+        function typeEffect() {
+          if (i < text.length) {
+            headline.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeEffect, 70);
+          } else {
+            headline.style.borderRight = "none";
+          }
+        }
+
+        typeEffect();
+      });
+
+      // Countdown logic
+      const countdown = document.getElementById("countdown");
+      const launchDate = new Date("June 1, 2025 00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        if (distance < 0) {
+          countdown.innerHTML = "<p>We're Live!</p>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdown.innerHTML = `
+          <div class="time-box"><span>${days}</span><small>Days</small></div>
+          <div class="time-box"><span>${hours}</span><small>Hours</small></div>
+          <div class="time-box"><span>${minutes}</span><small>Minutes</small></div>
+          <div class="time-box"><span>${seconds}</span><small>Seconds</small></div>
+        `;
       }
 
-      countdown.innerHTML = `
-        <div class="time-box"><span>${days}</span><small>Days</small></div>
-        <div class="time-box"><span>${hours}</span><small>Hours</small></div>
-        <div class="time-box"><span>${minutes}</span><small>Minutes</small></div>
-        <div class="time-box"><span>${seconds}</span><small>Seconds</small></div>
-      `;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
 </html>
